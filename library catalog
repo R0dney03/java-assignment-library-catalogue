@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+
+// Represents a Book entity with its attributes
+class Book {
+    String title;
+    String author;
+    String publisher;
+    int yearPublished;
+    String ISBN;
+
+    // Constructor to initialize a Book object
+    public Book(String title, String author, String publisher, int yearPublished, String ISBN) {
+        this.title = title;
+        this.author = author;
+        this.publisher = publisher;
+        this.yearPublished = yearPublished;
+        this.ISBN = ISBN;
+    }
+}
+
+// Represents a Catalog managing a collection of Book objects
+public class Catalog {
+    ArrayList<Book> catalog = new ArrayList<>(); // ArrayList to store Book objects
+
+    // Method to add a new book to the catalog
+    public void addBook(String title, String author, String publisher, int yearPublished, String ISBN) {
+        Book newBook = new Book(title, author, publisher, yearPublished, ISBN);
+        catalog.add(newBook); 
+    }
+
+    //  to display the details of books in the catalog
+    public void displayBooks() {
+        for (Book book : catalog) {
+            System.out.println("Title: " + book.title);
+            System.out.println("Author: " + book.author);
+            System.out.println("Publisher: " + book.publisher);
+            System.out.println("Year Published: " + book.yearPublished);
+            System.out.println("ISBN: " + book.ISBN);
+            System.out.println("------------------------");
+        }
+    }
+
+    //  method demonstrating the functionality of the Catalog class
+    public static void main(String[] args) {
+        Catalog library = new Catalog(); // Create a new Catalog object (Library)
+        
+        // Add books to the library catalog using the addBook method
+        library.addBook("The Great", "F. Scott ", "Scribner", 2022, "97807");
+        library.addBook("how to pass", "rodney", "J.B. rod.", 2023, "0061");
+        
+        // Display the details of books in the catalog using the displayBooks method
+        library.displayBooks();
+    }
+}
